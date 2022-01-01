@@ -88,8 +88,8 @@ namespace eShopSolution.Data.Extensions
                 );
 
             // any guid
-            var roleId = new Guid("8D04DCE2-969A-435D-BBA4-DF3F325983DC");
-            var adminId = new Guid("69BD714F-9576-45BA-B5B7-F00649BE00DE");
+            var roleId = new Guid("CC94A44C-A830-46EA-AA8F-C11F3ECDBE96");
+            var adminId = new Guid("FD23A1D6-E601-41CE-843F-76036567C5EA");
             modelBuilder.Entity<AppRole>().HasData(new AppRole
             {
                 Id = roleId,
@@ -109,12 +109,17 @@ namespace eShopSolution.Data.Extensions
                 EmailConfirmed = true,
                 PasswordHash = hasher.HashPassword(null, "Abcd1234$"),
                 SecurityStamp = string.Empty,
-                FirstName = "Toan",
-                LastName = "Bach",
-                Dob = new DateTime(2020, 01, 31)
+                FirstName = "Thinh",
+                LastName = "Dang",
+                Dob = new DateTime(2022, 01, 01)
+            });
+            modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(new IdentityUserRole<Guid>
+            {
+                RoleId = roleId,
+                UserId = adminId
             });
 
-           
+
 
             modelBuilder.Entity<Slide>().HasData(
               new Slide() { Id = 1, Name = "Second Thumbnail label", Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.", SortOrder = 1, Url = "#", Image = "/themes/images/carousel/1.png", Status = Status.Active },

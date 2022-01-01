@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eShopSolution.Data.EF;
 
@@ -11,9 +12,10 @@ using eShopSolution.Data.EF;
 namespace eShopSolution.Data.Migrations
 {
     [DbContext(typeof(EShopDbContext))]
-    partial class EShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220101135646_AspnetCoreIdentityDatabase")]
+    partial class AspnetCoreIdentityDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,8 +82,8 @@ namespace eShopSolution.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("cc94a44c-a830-46ea-aa8f-c11f3ecdbe96"),
-                            ConcurrencyStamp = "bb7792c9-d898-4c73-a5e6-2b9b7db42203",
+                            Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
+                            ConcurrencyStamp = "3fbd95cf-2eb9-4eda-8e1c-57fb69daccd6",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -156,18 +158,18 @@ namespace eShopSolution.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("fd23a1d6-e601-41ce-843f-76036567c5ea"),
+                            Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2b76cf70-34c0-4278-ad4d-eb4dba57ec66",
-                            Dob = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ConcurrencyStamp = "f32aae1b-4bb4-4741-bb8d-13f04ce8178b",
+                            Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangthinh123qb@gmail.com",
                             EmailConfirmed = true,
-                            FirstName = "Thinh",
-                            LastName = "Dang",
+                            FirstName = "Toan",
+                            LastName = "Bach",
                             LockoutEnabled = false,
                             NormalizedEmail = "quangthinh123qb@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAELRZtaavyTsmmk9DNYRezrJjmSFduc2V+grxYBye4biLuZw/v2ypAef7fYdkSiP6xw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDgBF+UuS8HCddB9iZDCVv73vCIt2OoayyIFnqVaFl4+Nvxd9pAQKKcSnNMOBPeeaw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -511,7 +513,7 @@ namespace eShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 1, 1, 21, 25, 11, 832, DateTimeKind.Local).AddTicks(8726),
+                            DateCreated = new DateTime(2022, 1, 1, 20, 56, 46, 59, DateTimeKind.Local).AddTicks(4916),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -925,13 +927,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("fd23a1d6-e601-41ce-843f-76036567c5ea"),
-                            RoleId = new Guid("cc94a44c-a830-46ea-aa8f-c11f3ecdbe96")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
