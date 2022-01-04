@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Entities
 {
-    internal class Order
+    public class Order
     {
         public int Id { set; get; }
         public DateTime OrderDate { set; get; }

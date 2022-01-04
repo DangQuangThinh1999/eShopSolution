@@ -11,7 +11,7 @@ using System.IO;
 
 namespace eShopSolution.Data
 {
-    internal class EShopDbContextFactory : IDesignTimeDbContextFactory<EShopDbContext>
+    public class EShopDbContextFactory : IDesignTimeDbContextFactory<EShopDbContext>
     {
         public EShopDbContext CreateDbContext(string[] args)
         {

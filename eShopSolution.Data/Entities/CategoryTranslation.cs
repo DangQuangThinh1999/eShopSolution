@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Entities
 {
-    internal class CategoryTranslation
+    public class CategoryTranslation
     {
         public int Id { set; get; }
         public int CategoryId { set; get; }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Configurations
 {
-    internal class AppRoleConfiguration : IEntityTypeConfiguration<AppRole>
+    public class AppRoleConfiguration : IEntityTypeConfiguration<AppRole>
     {
         public void Configure(EntityTypeBuilder<AppRole> builder)
         {

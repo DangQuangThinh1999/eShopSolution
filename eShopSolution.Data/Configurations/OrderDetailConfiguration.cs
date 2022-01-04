@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Configurations
 {
-    internal class OrderDetailConfiguration : IEntityTypeConfiguration<OrderDetail>
+    public class OrderDetailConfiguration : IEntityTypeConfiguration<OrderDetail>
     {
         public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {

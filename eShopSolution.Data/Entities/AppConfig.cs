@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Entities
 {
-    internal class AppConfig
+    public class AppConfig
     {
         public string Key { get; set; }
 

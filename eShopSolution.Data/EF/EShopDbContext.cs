@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace eShopSolution.Data.EF
 {
-    internal class EShopDbContext : IdentityDbContext<AppUser,AppRole,Guid>
+    public class EShopDbContext : IdentityDbContext<AppUser,AppRole,Guid>
     {
         public EShopDbContext(DbContextOptions options) : base(options)
         {

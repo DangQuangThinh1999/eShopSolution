@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Enums
 {
-    internal enum TransactionStatus
+    public enum TransactionStatus
     {
 
         Success,
