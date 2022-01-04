@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Configurations
 {
-    internal class ProductTranslationConfiguration : IEntityTypeConfiguration<ProductTranslation>
+    public class ProductTranslationConfiguration : IEntityTypeConfiguration<ProductTranslation>
     {
         public void Configure(EntityTypeBuilder<ProductTranslation> builder)
         {

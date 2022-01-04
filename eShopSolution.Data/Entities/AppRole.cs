@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Entities
 {
-    internal class AppRole : IdentityRole<Guid>
+    public class AppRole : IdentityRole<Guid>
     {
         public string Description { get; set; }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Entities
 {
-    internal class Language
+    public class Language
     {
         public string Id { get; set; }
 

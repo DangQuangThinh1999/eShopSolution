@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Entities
 {
-    internal class Product
+    public class Product
     {
         public int Id { set; get; }
         public decimal Price { set; get; }

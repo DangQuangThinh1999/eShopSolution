@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Entities
 {
-    internal class AppUser: IdentityUser<Guid>
+    public class AppUser: IdentityUser<Guid>
     {
         public string FirstName { get; set; }
 

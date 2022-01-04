@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Entities
 {
-    internal class Transaction
+    public class Transaction
     {
         public int Id { set; get; }
         public DateTime TransactionDate { set; get; }

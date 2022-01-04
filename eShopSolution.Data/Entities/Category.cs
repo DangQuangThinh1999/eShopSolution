@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Entities
 {
-    internal class Category
+    public class Category
     {
         public int Id { set; get; }
         public int SortOrder { set; get; }

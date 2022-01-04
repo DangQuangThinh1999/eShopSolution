@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Configurations
 {
-    internal class SlideConfiguration : IEntityTypeConfiguration<Slide>
+    public class SlideConfiguration : IEntityTypeConfiguration<Slide>
     {
         public void Configure(EntityTypeBuilder<Slide> builder)
         {

@@ -10,7 +10,7 @@ using eShopSolution.Data.Entities;
 
 namespace eShopSolution.Data.Configurations
 {
-    internal class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
+    public class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
     {
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {

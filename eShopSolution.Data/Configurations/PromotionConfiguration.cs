@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Data.Configurations
 {
-    internal class PromotionConfiguration: IEntityTypeConfiguration<Promotion>
+    public class PromotionConfiguration: IEntityTypeConfiguration<Promotion>
     {
        
 
