@@ -9,8 +9,7 @@ namespace eShopSolution.ViewModels.Catalog.Products
 {
     public class ProductUpdateRequest
     {
-        public int Id { set; get; }
-
+        public int Id { get; set; }
         public string Name { set; get; }
         public string Description { set; get; }
         public string Details { set; get; }
@@ -20,6 +19,7 @@ namespace eShopSolution.ViewModels.Catalog.Products
         public string SeoAlias { get; set; }
         public string LanguageId { set; get; }
 
-        public IFormFile ThumbnailImage { set; get; } // dowload Microsoft.AspNetCore.Http.Features
+        public IFormFile ThumbnailImage { get; set; }
+
     }
 }

@@ -19,7 +19,7 @@ namespace eShopSolution.Data.EF
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Configure using fluent API
+            //Configure using Fluent API
             modelBuilder.ApplyConfiguration(new CartConfiguration());
 
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
@@ -39,10 +39,7 @@ namespace eShopSolution.Data.EF
             modelBuilder.ApplyConfiguration(new AppUserConfiguration());
             modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
             modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
-            modelBuilder.ApplyConfiguration(new SlideConfiguration());
 
-
-            // nằm ở class IdentityDbContex F12 
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
             modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
@@ -50,29 +47,38 @@ namespace eShopSolution.Data.EF
             modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
             modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => x.UserId);
 
-            // Data_seeding
+            //Data seeding
             modelBuilder.Seed();
-
-
-             
             //base.OnModelCreating(modelBuilder);
         }
+
         public DbSet<Product> Products { get; set; }
-        public DbSet<Order> Orders { get; set; } 
-        public DbSet<AppConfig> AppConfigs { get; set; }
-        public DbSet<AppRole> AppRoles { get; set; }
-        public DbSet<Cart> carts { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<CategoryTranslation> categoryTranslations { get; set; }
-        public DbSet<Contact> contacts { get; set; }
-        public DbSet<Language> languages { get; set; }
+
+        public DbSet<AppConfig> AppConfigs { get; set; }
+
+
+        public DbSet<Cart> Carts { get; set; }
+
+        public DbSet<CategoryTranslation> CategoryTranslations { get; set; }
+        public DbSet<ProductInCategory> ProductInCategories { get; set; }
+
+        public DbSet<Contact> Contacts { get; set; }
+
+        public DbSet<Language> Languages { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<ProductTranslation> ProductTranslations { get; set; }
+
+        public DbSet<Promotion> Promotions { get; set; }
+
+
+        public DbSet<Transaction> Transactions { get; set; }
+
         public DbSet<ProductImage> ProductImages { get; set; }
-        public DbSet<ProductInCategory>ProductInCategories { get; set; }
-        public DbSet<ProductTranslation> productTranslations { get; set; }
-        public DbSet<Promotion> promotion { get; set; }
-        public DbSet<Slide> slides { get; set; }
-        public DbSet<Transaction> transaction { get; set; }
+
+
     }
 }
