@@ -2,15 +2,14 @@
 using eShopSolution.ViewModels.Catalog.Products;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using eShopSolution.ViewModels.Catalog.ProductImages;
 
 namespace eShopSolution.BackendApi.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
-
         private readonly IPublicProductService _publicProductService;
         private readonly IManageProductService _manageProductService;
 
@@ -21,13 +20,11 @@ namespace eShopSolution.BackendApi.Controllers
             _manageProductService = manageProductService;
         }
 
-      
-
         //http://localhost:port/product?pageIndex=1&pageSize=10&categoryId=
         [HttpGet("{languageId}")]
-        public async Task<IActionResult> GetAllPaging(string LanguageId,[FromQuery] GetPublicProductPagingRequest request)
+        public async Task<IActionResult> GetAllPaging(string LanguageId, [FromQuery] GetPublicProductPagingRequest request)
         {
-            var products = await _publicProductService.GetAllByCategoryId(LanguageId,request);
+            var products = await _publicProductService.GetAllByCategoryId(LanguageId, request);
             return Ok(products);
         }
 
@@ -44,10 +41,10 @@ namespace eShopSolution.BackendApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }    
+            }
             var productId = await _manageProductService.Create(request);
             if (productId == 0)
                 return BadRequest();
@@ -84,6 +81,42 @@ namespace eShopSolution.BackendApi.Controllers
 
             return BadRequest();
         }
+
+        [HttpPut("{producId}/images/{imageId}")]
+        public async Task<IActionResult> UpdateImage(int imageId, [FromForm] ProductImagesUpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var result = await _manageProductService.UpdateImage(imageId, request);
+            if (result == 0)
+                return BadRequest();
+
+            return Ok();
+        }
+
+        [HttpDelete("{producId}/images/{imageId}")]
+        public async Task<IActionResult> RemoveImage(int imageId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var result = await _manageProductService.RemoveImage(imageId);
+            if (result == 0)
+                return BadRequest();
+
+            return Ok();
+        }
+
+        [HttpGet("{productId}/images/{imageId}")]
+        public async Task<IActionResult> GetImageById(int productId, int imageId)
+        {
+            var image = await _manageProductService.GetImageById(imageId);
+            if (image == null)
+                return BadRequest("Cannot find product");
+            return Ok(image);
+        }
     }
 }
-
