@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eShopSolution.Data.EF;
 
@@ -11,9 +12,10 @@ using eShopSolution.Data.EF;
 namespace eShopSolution.Data.Migrations
 {
     [DbContext(typeof(EShopDbContext))]
-    partial class EShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220104162330_fixdata")]
+    partial class fixdata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,7 +83,7 @@ namespace eShopSolution.Data.Migrations
                         new
                         {
                             Id = new Guid("cc94a44c-a830-46ea-aa8f-c11f3ecdbe96"),
-                            ConcurrencyStamp = "d3e6b956-ea0e-4e1a-a9f3-fcf214eef23a",
+                            ConcurrencyStamp = "6c3e79b4-2a40-4135-a845-6f2bfbd9c371",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -158,7 +160,7 @@ namespace eShopSolution.Data.Migrations
                         {
                             Id = new Guid("fd23a1d6-e601-41ce-843f-76036567c5ea"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9f1d4387-5651-4320-884f-43fa371d33d4",
+                            ConcurrencyStamp = "1e1b0b2d-0823-4f10-8c42-0d511c7489a5",
                             Dob = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangthinh123qb@gmail.com",
                             EmailConfirmed = true,
@@ -167,7 +169,7 @@ namespace eShopSolution.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "quangthinh123qb@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFtCF7ObosTH8xuRcjl5Nurg66i2BksYrLNa3IfaZHCmZgkD7XLsbtDgU1XuH8emaw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO32nC8xio6mTRCT3iHlSANo26zttI9dLpjdaJFYmPngB1WRXlckKBx1y9fMP/8JPA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -484,6 +486,9 @@ namespace eShopSolution.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool?>("IsFeatured")
+                        .HasColumnType("bit");
+
                     b.Property<decimal>("OriginalPrice")
                         .HasColumnType("decimal(18,2)");
 
@@ -508,7 +513,7 @@ namespace eShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 1, 4, 23, 59, 0, 302, DateTimeKind.Local).AddTicks(8908),
+                            DateCreated = new DateTime(2022, 1, 4, 23, 23, 29, 530, DateTimeKind.Local).AddTicks(611),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -710,15 +715,18 @@ namespace eShopSolution.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("SortOrder")
                         .HasColumnType("int");
@@ -728,11 +736,12 @@ namespace eShopSolution.Data.Migrations
 
                     b.Property<string>("Url")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Slide");
+                    b.ToTable("Slides", (string)null);
 
                     b.HasData(
                         new

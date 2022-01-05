@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.Application.Common
 {
-    public interface IStorageService
+    public interface IStorageService 
     {
         string GetFileUrl(string fileName);
 
