@@ -17,7 +17,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Login/Index";
+        options.LoginPath = "/User/Login";
         options.AccessDeniedPath = "/User/Forbidden/";
     });
 
